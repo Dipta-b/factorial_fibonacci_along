@@ -1,5 +1,16 @@
-#include <stdio.h>
 
+#include <stdio.h>
+//..........factorial.....
+int factorial(int i)
+{
+    if (i == 0 || i == 1)
+    {
+        return 1;
+    }
+    else
+        return i * factorial(i - 1);
+}
+// fibonacci
 int fibonacci(int i)
 {
     if (i == 0 || i == 1)
@@ -7,63 +18,42 @@ int fibonacci(int i)
         return i;
     }
     else
-    {
         return fibonacci(i - 1) + fibonacci(i - 2);
-    }
 }
-
-int factorial(int n)
-{
-    if (n == 0 || n == 1)
-    {
-        return 1;
-    }
-    else
-    {
-        return n * factorial(n - 1);
-    }
-}
-
 int main()
 {
     int choice;
     printf("Choose an option:\n");
-    printf("1. Fibonacci Series\n");
-    printf("2. Factorial\n");
+    printf("1. Factorial Series\n");
+    printf("2. Fibonacci\n");
     printf("Enter your choice (1 or 2): ");
     scanf("%d", &choice);
-
     if (choice == 1)
     {
-        int n;
-        printf("Enter the range for Fibonacci series: ");
-        scanf("%d", &n);
-
-        printf("Fibonacci Series: ");
-        for (int i = 0; i < n; i++)
-        {
-            printf("%d ", fibonacci(i));
-        }
-        printf("\n");
-    }
-    else if (choice == 2)
-    {
         int num;
-        printf("Enter a positive integer: ");
+        printf("Enter a positive number :");
         scanf("%d", &num);
 
         if (num < 0)
         {
-            printf("Factorial is not defined for negative numbers.\n");
+            printf("Not valid");
         }
         else
         {
-            printf("Factorial of %d is %d\n", num, factorial(num));
+            printf("Factorial of %d is %d ", num, factorial(num));
         }
     }
-    else
+    else if (choice == 2)
     {
-        printf("Invalid choice.\n");
+
+        int s;
+        printf("Enter the range for Fibonacci series: ");
+        scanf("%d", &s);
+        for (int i = 0; i < s; i++)
+        {
+            int result = fibonacci(i);
+            printf("%d ", result);
+        }
     }
 
     return 0;
